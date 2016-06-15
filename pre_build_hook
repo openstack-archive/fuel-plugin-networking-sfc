@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Add here any the actions which are required before plugin build
+# like packages building, packages downloading from mirrors and so on.
+# The script should return 0 if there were no errors.
+set -eux
+
+#git reposotory with source code
+GIT_REPOSITORY_URL=https://github.com/openstack/networking-sfc.git
+
+#package information
+VERSION_NUMBER=${VERSION_NUMBER:-0.0.1}
+DESCRIPTION="Networking SFC for Openstack"
+MAINTAINERS="Maciej Relewicz, Damian Szeluga"
+
+DIR="$(dirname `readlink -f $0`)"
+TMP_DIR="${DIR}/tmp"
+
+#Remove temporary files
+CLEANUP=${CLEANUP:-true}
+
+function cleanup {
+  rm -rf "${TMP_DIR}"
+}
+
+command -v fpm >/dev/null 2>&1 || { echo >&2 "fpm ruby gem required but it's not installed.  Aborting."; exit 1; }
+
+cleanup
+mkdir -p "${TMP_DIR}"
+pushd $TMP_DIR
+
+git clone $GIT_REPOSITORY_URL networking-sfc
+
+pushd "${DIR}/repositories/ubuntu/"
+fpm --architecture all --force -s python --no-python-dependencies -t deb -m "${MAINTAINERS}" --python-install-lib /usr/lib/python2.7/dist-packages ${TMP_DIR}/networking-sfc/setup.py
+popd
+
+if [ "$CLEANUP" != false ];then
+  cleanup
+fi

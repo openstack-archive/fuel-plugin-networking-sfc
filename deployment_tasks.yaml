@@ -1,0 +1,24 @@
+##############################################
+# Deployment groups
+# Deployment tasks
+- id: networking-sfc-controller
+  type: puppet
+  version: 2.0.0
+  groups: [primary-controller,controller]
+  requires: [post_deployment_start]
+  required_for: [post_deployment_end]
+  parameters:
+    puppet_manifest: puppet/manifests/networking-sfc-controller.pp
+    puppet_modules: puppet/modules:/etc/puppet/modules
+    timeout: 120
+
+- id: networking-sfc-compute
+  type: puppet
+  version: 2.0.0
+  groups: [compute]
+  requires: [post_deployment_start]
+  required_for: [post_deployment_end]
+  parameters:
+    puppet_manifest: puppet/manifests/networking-sfc-compute.pp
+    puppet_modules: puppet/modules:/etc/puppet/modules
+    timeout: 120

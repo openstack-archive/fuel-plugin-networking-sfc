@@ -1,0 +1,5 @@
+attributes:
+  metadata:
+    restrictions:
+      - condition: "not ((cluster:net_provider == 'neutron' and networking_parameters:segmentation_type != 'vlan') and (settings:neutron_advanced_configuration.neutron_l2_pop.value == true))"
+        message: "Please use Neutron with tunneling segmentation and L2 population option enabled"

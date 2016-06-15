@@ -1,0 +1,3 @@
+.build/
+networking-sfc*.noarch.rpm
+tmp
