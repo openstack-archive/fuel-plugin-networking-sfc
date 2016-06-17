@@ -62,3 +62,4 @@ Contributors
 
  * Damian Szeluga <dszeluga@mirantis.com> (developer)
  * Maciej Relewicz <mrelewicz@mirantis.com> (developer)
+ * Bartosz Kupidura <bkupidura@mirantis.com> (developer)
