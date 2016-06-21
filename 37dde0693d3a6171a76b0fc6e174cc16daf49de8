@@ -1,0 +1,9 @@
+Code-Review+2: Maciej Relewicz <mrelewicz@mirantis.com>
+Workflow+1: Maciej Relewicz <mrelewicz@mirantis.com>
+Code-Review+1: Jerzy Mikolajczak <jmikolajczak@mirantis.com>
+Verified+2: Jenkins
+Submitted-by: Jenkins
+Submitted-at: Tue, 21 Jun 2016 09:29:42 +0000
+Reviewed-on: https://review.openstack.org/331143
+Project: openstack/fuel-plugin-networking-sfc
+Branch: refs/heads/master
