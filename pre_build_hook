@@ -7,6 +7,7 @@ set -eux
 
 #git reposotory with source code
 GIT_REPOSITORY_URL=https://github.com/openstack/networking-sfc.git
+GIT_LAST_WORKING_COMMIT=5d69969e999c5fb9a98fb37bb627f1fca789c54c
 
 #package information
 VERSION_NUMBER=${VERSION_NUMBER:-0.0.1}
@@ -28,6 +29,9 @@ command -v fpm >/dev/null 2>&1 || { echo >&2 "fpm ruby gem required but it's not
 cleanup
 mkdir -p "${TMP_DIR}"
 pushd $TMP_DIR
+pushd networking-sfc
+git checkout $GIT_LAST_WORKING_COMMIT
+popd
 
 git clone $GIT_REPOSITORY_URL networking-sfc
 
