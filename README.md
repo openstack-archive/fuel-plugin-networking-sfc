@@ -1,5 +1,5 @@
 Networking SFC plugin for Fuel
-=======================
+==============================
 
 Networking SFC
 --------------
@@ -19,30 +19,37 @@ Requirements
 |:---------------------------------|:--------|
 | Mirantis OpenStack compatibility | 9.0     |
 
-It is required to install this on vxlans enabled environment. Will not work otherwise.
+It is required to install this on vxlans/gre enabled environment. Will not work otherwise.
+Neutron L2 population setting should be also enabled.
+
 
 Installation Guide
 ==================
 
 Networking SFC plugin installation
----------------------------
+----------------------------------
 
 To install Networking SFC plugin, follow these steps:
 
-1. Build a plugin `fpb --build dir`
+#. Install all needed dependencies
 
-2. Copy the plugin on already installed Fuel Master node; ssh can be used for
+        # apt-get install git ruby-dev
+        # gem install fpm
+
+#. Build a plugin `fpb --build dir`
+
+#. Copy the plugin on already installed Fuel Master node; ssh can be used for
     that. If you do not have the Fuel Master node yet, see
     [Quick Start Guide](https://software.mirantis.com/quick-start/) :
 
         # scp networking-sfc-<version>.noarch.rpm root@<Fuel_Master_ip>:/tmp
 
-3. Install the plugin:
+#. Install the plugin:
 
         # cd /tmp
         # fuel plugins --install networking-sfc-<version>.noarch.rpm
 
-4. Check if the plugin was installed successfully:
+#. Check if the plugin was installed successfully:
 
         # [root@nailgun ~]# fuel plugins
         id | name           | version | package_version | releases
@@ -50,12 +57,18 @@ To install Networking SFC plugin, follow these steps:
         1  | networking-sfc | 1.0.0   | 4.0.0           | ubuntu (mitaka-9.0)
 
 Networking SFC plugin configuration
-----------------------------
+-----------------------------------
 
 1. Create an environment.
 2. Enable L2 Population in network tab.
 3. Enable the plugin on the Settings tab of the Fuel web UI.
 4. Deploy the environment.
+
+Known issues
+------------
+
+#. Fuel plugin should be build on Ubuntu system (https://bugs.launchpad.net/networking-sfc/+bug/1593693).
+#. Networking-SFC is very dynamic project, because of that we stick to last known working commit.
 
 Contributors
 ------------
