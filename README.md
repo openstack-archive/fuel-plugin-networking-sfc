@@ -31,25 +31,25 @@ Networking SFC plugin installation
 
 To install Networking SFC plugin, follow these steps:
 
-#. Install all needed dependencies
+1. Install all needed dependencies
 
         # apt-get install git ruby-dev
         # gem install fpm
 
-#. Build a plugin `fpb --build dir`
+2. Build a plugin `fpb --build dir`
 
-#. Copy the plugin on already installed Fuel Master node; ssh can be used for
+3. Copy the plugin on already installed Fuel Master node; ssh can be used for
     that. If you do not have the Fuel Master node yet, see
     [Quick Start Guide](https://software.mirantis.com/quick-start/) :
 
         # scp networking-sfc-<version>.noarch.rpm root@<Fuel_Master_ip>:/tmp
 
-#. Install the plugin:
+4. Install the plugin:
 
         # cd /tmp
         # fuel plugins --install networking-sfc-<version>.noarch.rpm
 
-#. Check if the plugin was installed successfully:
+5. Check if the plugin was installed successfully:
 
         # [root@nailgun ~]# fuel plugins
         id | name           | version | package_version | releases
@@ -67,8 +67,8 @@ Networking SFC plugin configuration
 Known issues
 ------------
 
-#. Fuel plugin should be build on Ubuntu system (https://bugs.launchpad.net/networking-sfc/+bug/1593693).
-#. Networking-SFC is very dynamic project, because of that we stick to last known working commit.
+1. Fuel plugin should be build on Ubuntu system (https://bugs.launchpad.net/networking-sfc/+bug/1593693).
+2. Networking-SFC is very dynamic project, because of that we stick to last known working commit.
 
 Contributors
 ------------
