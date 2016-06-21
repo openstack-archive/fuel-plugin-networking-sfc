@@ -68,19 +68,15 @@ if $use_neutron {
     class { '::neutron::db::sync':
       extra_params => $extra_params,
     }
-   notify{"Schema upgrade for SFC": } ~> Exec['neutron-db-sync']
+    notify{"Schema upgrade for SFC": } ~> Exec['neutron-db-sync']
+    Package['python-networking-sfc'] -> Class['::neutron::db::sync']
   }
 
-  neutron_config { 'DEFAULT/service_plugins': value => $enabled_plugins } ->
+  Package['python-networking-sfc'] -> Neutron_config <| |>
+  Neutron_config <| |> -> Exec <| title == 'Modify neutron-openvswitch-agent.conf' |>
 
-  neutron_plugin_ml2 { 'securitygroup/enable_security_group': value => 'False'} ->
-  neutron_plugin_ml2 { 'securitygroup/enable_ipset': value => 'False'} ->
-  neutron_plugin_ml2 { 'securitygroup/firewall_driver': value => 'neutron.agent.firewall.NoopFirewallDriver'} ->
-
-  file_line { 'Add OSV section to neutron.conf':
-    path => '/etc/neutron/neutron.conf',
-    line => "\n[sfc]\ndrivers = ovs\n",
-  } ->
+  neutron_config { 'DEFAULT/service_plugins': value => $enabled_plugins }
+  neutron_config { 'sfc/drivers': value => 'ovs' }
 
   exec { 'Modify neutron-openvswitch-agent.conf':
     command => "sed -i 's|/usr/bin|/usr/local/bin|g' /etc/init/neutron-openvswitch-agent.conf",
