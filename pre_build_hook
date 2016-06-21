@@ -7,6 +7,7 @@ set -eux
 
 #git reposotory with source code
 GIT_REPOSITORY_URL=https://github.com/openstack/networking-sfc.git
+GIT_LAST_WORKING_COMMIT=5d69969e999c5fb9a98fb37bb627f1fca789c54c
 
 #package information
 VERSION_NUMBER=${VERSION_NUMBER:-0.0.1}
@@ -30,6 +31,9 @@ mkdir -p "${TMP_DIR}"
 pushd $TMP_DIR
 
 git clone $GIT_REPOSITORY_URL networking-sfc
+pushd networking-sfc
+git checkout $GIT_LAST_WORKING_COMMIT
+popd
 
 pushd "${DIR}/repositories/ubuntu/"
 fpm --architecture all --force -s python --no-python-dependencies -t deb -m "${MAINTAINERS}" --python-install-lib /usr/lib/python2.7/dist-packages ${TMP_DIR}/networking-sfc/setup.py
