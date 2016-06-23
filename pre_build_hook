@@ -36,7 +36,7 @@ git checkout $GIT_LAST_WORKING_COMMIT
 popd
 
 pushd "${DIR}/repositories/ubuntu/"
-fpm --architecture all --force -s python --no-python-dependencies -t deb -m "${MAINTAINERS}" --python-install-lib /usr/lib/python2.7/dist-packages ${TMP_DIR}/networking-sfc/setup.py
+fpm --prefix /usr --python-install-lib /lib/python2.7/dist-packages --before-install ../../fpm-before-install --architecture all --force -s python --no-python-dependencies -t deb -m "${MAINTAINERS}" ${TMP_DIR}/networking-sfc/setup.py
 popd
 
 if [ "$CLEANUP" != false ];then

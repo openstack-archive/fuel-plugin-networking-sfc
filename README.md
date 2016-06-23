@@ -67,8 +67,7 @@ Networking SFC plugin configuration
 Known issues
 ------------
 
-1. Fuel plugin should be build on Ubuntu system (https://bugs.launchpad.net/networking-sfc/+bug/1593693).
-2. Networking-SFC is very dynamic project, because of that we stick to last known working commit.
+1. Networking-SFC is very dynamic project, because of that we stick to last known working commit.
 
 Contributors
 ------------

@@ -42,14 +42,11 @@ if $use_neutron {
   }
 
   Package['python-networking-sfc'] -> Neutron_config <| |>
-  Neutron_config <| |> -> Exec <| title == 'Modify neutron-openvswitch-agent.conf' |>
+
+  Package['python-networking-sfc'] ~> Service['neutron-openvswitch-agent']
+  Neutron_config <| |> ~> Service['neutron-openvswitch-agent']
 
   neutron_config { 'DEFAULT/service_plugins': value => $enabled_plugins }
   neutron_config { 'sfc/drivers': value => 'ovs' }
 
-  exec { 'Modify neutron-openvswitch-agent.conf':
-    command => "sed -i 's|/usr/bin|/usr/local/bin|g' /etc/init/neutron-openvswitch-agent.conf",
-    path    => '/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin',
-    notify  => Service['neutron-openvswitch-agent']
-  }
 }
