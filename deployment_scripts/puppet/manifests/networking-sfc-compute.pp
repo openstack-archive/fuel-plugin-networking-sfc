@@ -13,9 +13,6 @@
 #    under the License.
 notice('MODULAR: networking-sfc/networking-sfc-compute.pp')
 
-$use_neutron = hiera('use_neutron', false)
-
-if $use_neutron {
   include ::neutron::params
 
   $neutron_config = hiera_hash('neutron_config')
@@ -48,5 +45,3 @@ if $use_neutron {
 
   neutron_config { 'DEFAULT/service_plugins': value => $enabled_plugins }
   neutron_config { 'sfc/drivers': value => 'ovs' }
-
-}

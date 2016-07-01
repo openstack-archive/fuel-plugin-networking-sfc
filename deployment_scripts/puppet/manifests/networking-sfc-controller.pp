@@ -14,9 +14,6 @@
 
 notice('MODULAR: networking-sfc/networking-sfc-controller.pp')
 
-$use_neutron = hiera('use_neutron', false)
-
-if $use_neutron {
   include ::neutron::params
 
   $primary_controller = hiera('primary_controller')
@@ -80,5 +77,3 @@ if $use_neutron {
 
   neutron_config { 'DEFAULT/service_plugins': value => $enabled_plugins }
   neutron_config { 'sfc/drivers': value => 'ovs' }
-
-}

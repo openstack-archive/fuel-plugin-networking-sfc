@@ -62,7 +62,8 @@ Networking SFC plugin configuration
 1. Create an environment.
 2. Enable L2 Population in network tab.
 3. Enable the plugin on the Settings tab of the Fuel web UI.
-4. Deploy the environment.
+4. In tab 'Settings', in section 'General' -> 'Provision' -> 'Initial packages' please change the name of the installed kernel stack from trusty to xenial. For both packages, from linux-headers-generic-lts-trusty and linux-image-generic-lts-trusty to linux-headers-generic-lts-xenial and linux-image-generic-lts-xenial.
+5. Deploy the environment.
 
 Known issues
 ------------

@@ -3,15 +3,15 @@ name: networking-sfc
 # Human-readable name for your plugin
 title: Service Function Chaining Extension for OpenStack Networking
 # Plugin version
-version: '1.0.0'
+version: '2.0.0'
 # Description
 description: Service Function Chaining is a mechanism for overriding the basic destination based forwarding that is typical of IP networks.
 # Required fuel version
-fuel_version: ['9.0']
+fuel_version: ['10.0']
 # Specify license of your plugin
 licenses: ['Apache License Version 2.0']
 # Specify author or company name
-authors: ['Maciej Relewicz <mrelewicz@mirantis.com>', 'Damian Szeluga <dszeluga@mirantis.com>']
+authors: ['Maciej Relewicz <mrelewicz@mirantis.com>', 'Damian Szeluga <dszeluga@mirantis.com>', 'Bartosz Kupidura <bkupidura@mirantis.com>']
 # A link to the plugin's page
 homepage: 'https://github.com/damjanek/fuel-plugin-networking-sfc'
 # Specify a group which your plugin implements, possible options:
@@ -24,7 +24,7 @@ is_hotpluggable: false
 # The plugin is compatible with releases in the list
 releases:
   - os: ubuntu
-    version: mitaka-9.0
+    version: newton-10.0
     mode: ['ha']
     deployment_scripts_path: deployment_scripts/
     repository_path: repositories/ubuntu

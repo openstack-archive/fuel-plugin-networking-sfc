@@ -12,7 +12,7 @@ GIT_LAST_WORKING_COMMIT=5d69969e999c5fb9a98fb37bb627f1fca789c54c
 #package information
 VERSION_NUMBER=${VERSION_NUMBER:-0.0.1}
 DESCRIPTION="Networking SFC for Openstack"
-MAINTAINERS="Maciej Relewicz, Damian Szeluga"
+MAINTAINERS="Maciej Relewicz, Damian Szeluga, Bartosz Kupidura"
 
 DIR="$(dirname `readlink -f $0`)"
 TMP_DIR="${DIR}/tmp"
