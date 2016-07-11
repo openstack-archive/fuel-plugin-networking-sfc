@@ -33,8 +33,9 @@ To install Networking SFC plugin, follow these steps:
 
 1. Install all needed dependencies
 
-        # apt-get install git ruby-dev
-        # gem install fpm
+        # sudo apt-get install git ruby-dev python-pip
+        # sudo gem install fpm
+        # sudo pip install fuel-plugin-builde
 
 2. Build a plugin `fpb --build dir`
 
