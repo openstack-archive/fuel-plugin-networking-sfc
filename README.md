@@ -17,7 +17,7 @@ Requirements
 
 | Requirement                      | Version |
 |:---------------------------------|:--------|
-| Mirantis OpenStack compatibility | 9.0     |
+| Mirantis OpenStack compatibility |   10.0  |
 
 It is required to install this on vxlans/gre enabled environment. Will not work otherwise.
 Neutron L2 population setting should be also enabled.
@@ -33,7 +33,8 @@ To install Networking SFC plugin, follow these steps:
 
 1. Install all needed dependencies
 
-        # apt-get install git ruby-dev
+        # yum install createrepo rpm rpm-build dpkg-devel git ruby-devel createrepo dpkg-devel dpkg-dev rpm rpm-build python-pip
+        # pip install fuel-plugin-builder
         # gem install fpm
 
 2. Build a plugin `fpb --build dir`
@@ -54,12 +55,12 @@ To install Networking SFC plugin, follow these steps:
         # [root@nailgun ~]# fuel plugins
         id | name           | version | package_version | releases
         ---|----------------|---------|-----------------|--------------------
-        1  | networking-sfc | 1.0.0   | 4.0.0           | ubuntu (mitaka-9.0)
+        1  | networking-sfc | 2.0.0   | 4.0.0           | ubuntu (newton-10.0)
 
 Networking SFC plugin configuration
 -----------------------------------
 
-1. Create an environment.
+1. Create an environment with vxlans support.
 2. Enable L2 Population in network tab.
 3. Enable the plugin on the Settings tab of the Fuel web UI.
 4. In tab 'Settings', in section 'General' -> 'Provision' -> 'Initial packages' please change the name of the installed kernel stack from trusty to xenial. For both packages, from linux-headers-generic-lts-trusty and linux-image-generic-lts-trusty to linux-headers-generic-lts-xenial and linux-image-generic-lts-xenial.
