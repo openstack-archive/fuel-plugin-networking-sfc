@@ -33,7 +33,8 @@ To install Networking SFC plugin, follow these steps:
 
 1. Install all needed dependencies
 
-        # apt-get install git ruby-dev
+        # yum install createrepo rpm rpm-build dpkg-devel git ruby-devel createrepo dpkg-devel dpkg-dev rpm rpm-build python-pip
+        # pip install fuel-plugin-builder
         # gem install fpm
 
 2. Build a plugin `fpb --build dir`
@@ -59,7 +60,7 @@ To install Networking SFC plugin, follow these steps:
 Networking SFC plugin configuration
 -----------------------------------
 
-1. Create an environment.
+1. Create an environment with vxlans support.
 2. Enable L2 Population in network tab.
 3. Enable the plugin on the Settings tab of the Fuel web UI.
 4. Deploy the environment.
