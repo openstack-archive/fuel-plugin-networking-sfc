@@ -22,3 +22,14 @@
     puppet_manifest: puppet/manifests/networking-sfc-compute.pp
     puppet_modules: puppet/modules:/etc/puppet/modules
     timeout: 120
+
+- id: networking-sfc-setup-repo
+  type: puppet
+  version: 2.0.0
+  role: ['/.*/']
+  requires: [pre_deployment]
+  required_for: [deploy]
+  parameters:
+    puppet_manifest: puppet/manifests/networking-sfc-setup-repo.pp
+    puppet_modules: puppet/modules:/etc/puppet/modules
+    timeout: 120
