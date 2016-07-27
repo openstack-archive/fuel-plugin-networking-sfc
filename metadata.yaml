@@ -1,11 +1,11 @@
 # Plugin name
 name: networking-sfc
 # Human-readable name for your plugin
-title: Service Function Chaining Extension for OpenStack Networking
+title: Networking SFC Extension for OpenStack
 # Plugin version
 version: '2.0.0'
 # Description
-description: Service Function Chaining is a mechanism for overriding the basic destination based forwarding that is typical of IP networks.
+description: Networking SFC is a mechanism for overriding the basic destination based forwarding that is typical of IP networks.
 # Required fuel version
 fuel_version: ['10.0']
 # Specify license of your plugin
