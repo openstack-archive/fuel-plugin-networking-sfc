@@ -69,7 +69,7 @@ Networking SFC plugin configuration
 Known issues
 ------------
 
-1. Networking-SFC is very dynamic project, because of that we stick to last known working commit.
+1. Networking SFC is very dynamic project, because of that we stick to last known working commit.
 
 Contributors
 ------------
