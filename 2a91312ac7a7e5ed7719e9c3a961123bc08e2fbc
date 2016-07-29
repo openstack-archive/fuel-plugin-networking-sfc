@@ -1,0 +1,8 @@
+Code-Review+2: Bartosz Kupidura <bkupidura@mirantis.com>
+Workflow+1: Bartosz Kupidura <bkupidura@mirantis.com>
+Verified+2: Jenkins
+Submitted-by: Jenkins
+Submitted-at: Fri, 29 Jul 2016 08:51:06 +0000
+Reviewed-on: https://review.openstack.org/347727
+Project: openstack/fuel-plugin-networking-sfc
+Branch: refs/heads/1.0
