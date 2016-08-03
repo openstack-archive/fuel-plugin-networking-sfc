@@ -1,0 +1,10 @@
+Code-Review+1: Damian Szeluga <dszeluga@mirantis.com>
+Code-Review+1: Mykola Stolyarenko <mstolyarenko@mirantis.com>
+Code-Review+2: Bartosz Kupidura <bkupidura@mirantis.com>
+Workflow+1: Bartosz Kupidura <bkupidura@mirantis.com>
+Verified+2: Jenkins
+Submitted-by: Jenkins
+Submitted-at: Wed, 03 Aug 2016 09:19:49 +0000
+Reviewed-on: https://review.openstack.org/343637
+Project: openstack/fuel-plugin-networking-sfc
+Branch: refs/heads/1.0
