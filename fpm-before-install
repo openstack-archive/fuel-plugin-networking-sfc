@@ -1,2 +1,0 @@
-#!/bin/sh
-dpkg-divert --add --rename --divert /usr/bin/neutron-openvswitch-agent.vanilla /usr/bin/neutron-openvswitch-agent
